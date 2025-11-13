@@ -22,6 +22,8 @@ public class IAAggro : MonoBehaviour
 
     public float time = 0;
     public float movingTime;
+    public float chasingTime;
+    public float bubbleTimeLimit;
     private int direction;
     private bool fliped;
 
@@ -87,6 +89,8 @@ public class IAAggro : MonoBehaviour
             speed *= 1.3333333f;
             speedUp = true;
         }
+
+        chasingTime += Time.deltaTime;
         ActivateChat();
 
         //inimigo do lado esquerdo no player, move pra direita
@@ -101,10 +105,16 @@ public class IAAggro : MonoBehaviour
         }
 
         rb.velocity = new Vector2(speed, rb.velocity.y);
+
+        if(chasingTime >= bubbleTimeLimit)
+        {
+            DeactivateChat();
+        }
     }
 
     void Chill()
     {
+        chasingTime = 0;
         if (speedUp)
         {
             speed *= 0.75f;
