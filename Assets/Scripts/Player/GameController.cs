@@ -5,10 +5,12 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 // TODO: Arrumar tela de login
-// TODO: Alterar skins
 // TODO: Alterar ventiladores teto
-// TODO: Inimigos morrem com espinho e tomam stun com pancada na cabeça
+// TODO: Refatorar código inimigos
 // TODO: Arrumar inimigos virando de um lado pro outro rapido
+// TODO: Inimigos morrem com espinho e tomam stun com pancada na cabeça
+// TODO: Alterar skins
+// TODO: Cutscenes
 // TODO: Save
 // TODO: Ranking
 
