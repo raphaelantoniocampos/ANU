@@ -9,6 +9,8 @@ using UnityEngine.SceneManagement;
 // TODO: Alterar ventiladores teto
 // TODO: Inimigos morrem com espinho e tomam stun com pancada na cabeça
 // TODO: Arrumar inimigos virando de um lado pro outro rapido
+// TODO: Save
+// TODO: Ranking
 
 public class GameController : MonoBehaviour
 {
