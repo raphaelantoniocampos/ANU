@@ -4,6 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+// TODO: Alterar skins
+// TODO: Reduzir tempo de chat bubble
+// TODO: Alterar ventiladores teto
+// TODO: Inimigos morrem com espinho e tomam stun com pancada na cabeça
+// TODO: Arrumar inimigos virando de um lado pro outro rapido
+
 public class GameController : MonoBehaviour
 {
     public static GameController instance;
