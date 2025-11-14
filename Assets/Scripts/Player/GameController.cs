@@ -4,12 +4,15 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-// TODO: Arrumar tela de login
+// TODO: Scores na ultima fase
+// TODO: Dicas de comandos início do jogo
 // TODO: Alterar ventiladores teto
-// TODO: Refatorar código inimigos
 // TODO: Arrumar inimigos virando de um lado pro outro rapido
 // TODO: Inimigos morrem com espinho e tomam stun com pancada na cabeça
+// TODO: Volume slider
 // TODO: Alterar skins
+// TODO: Adicionar créditos
+// TODO: Refatorar código inimigos
 // TODO: Cutscenes
 // TODO: Save
 // TODO: Ranking
