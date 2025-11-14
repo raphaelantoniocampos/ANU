@@ -30,6 +30,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 83.84, y: -3.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -88,7 +89,7 @@ SpriteRenderer:
   m_SpriteSortPoint: 0
 --- !u!95 &3073517030257855982
 Animator:
-  serializedVersion: 3
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -101,10 +102,12 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!61 &3073517030257855983
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -143,9 +146,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d66c1a9551350f4fac3d3a6e5629770, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nomeDaCena: lvl_2
+  nomeDaCena: lvl_1
   scoreView: 0
-  score: {fileID: 0}
+  score: {fileID: 6034962751489102388, guid: 28155bcb8d130a049bb38d27c824d572, type: 3}
   scoreLvl: {fileID: 0}
   scoreDeaths: {fileID: 0}
   scoreTime: {fileID: 0}
+  totalScoreDeaths: {fileID: 0}
+  totalScoreTime: {fileID: 0}
