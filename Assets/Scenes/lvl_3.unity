@@ -7303,15 +7303,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 507302387576137671, guid: 74583f0a9d49ca94cbc9e8150630923e, type: 3}
       propertyPath: m_Name
-      value: Fan (2)
+      value: Fan DEFAULT
       objectReference: {fileID: 0}
     - target: {fileID: 507302387576137671, guid: 74583f0a9d49ca94cbc9e8150630923e, type: 3}
       propertyPath: m_Layer
       value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 4521075732743270501, guid: 74583f0a9d49ca94cbc9e8150630923e, type: 3}
+      propertyPath: VelocityModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4521075732743270501, guid: 74583f0a9d49ca94cbc9e8150630923e, type: 3}
+      propertyPath: VelocityModule.x.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4521075732743270501, guid: 74583f0a9d49ca94cbc9e8150630923e, type: 3}
+      propertyPath: VelocityModule.y.scalar
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4521075732743270501, guid: 74583f0a9d49ca94cbc9e8150630923e, type: 3}
+      propertyPath: VelocityModule.inWorldSpace
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4521075732743270501, guid: 74583f0a9d49ca94cbc9e8150630923e, type: 3}
       propertyPath: InitialModule.startLifetime.scalar
       value: 1.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4521075732743270501, guid: 74583f0a9d49ca94cbc9e8150630923e, type: 3}
+      propertyPath: InitialModule.gravityModifier.scalar
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8161551672349839535, guid: 74583f0a9d49ca94cbc9e8150630923e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -41014,6 +41034,42 @@ PrefabInstance:
     - target: {fileID: 4521075732743270501, guid: 74583f0a9d49ca94cbc9e8150630923e, type: 3}
       propertyPath: prewarm
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4521075732743270501, guid: 74583f0a9d49ca94cbc9e8150630923e, type: 3}
+      propertyPath: VelocityModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4521075732743270501, guid: 74583f0a9d49ca94cbc9e8150630923e, type: 3}
+      propertyPath: VelocityModule.x.scalar
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4521075732743270501, guid: 74583f0a9d49ca94cbc9e8150630923e, type: 3}
+      propertyPath: VelocityModule.inWorldSpace
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4521075732743270501, guid: 74583f0a9d49ca94cbc9e8150630923e, type: 3}
+      propertyPath: InitialModule.gravityModifier.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8161551672349839535, guid: 74583f0a9d49ca94cbc9e8150630923e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7027742
+      objectReference: {fileID: 0}
+    - target: {fileID: 8161551672349839535, guid: 74583f0a9d49ca94cbc9e8150630923e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8161551672349839535, guid: 74583f0a9d49ca94cbc9e8150630923e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.7114129
+      objectReference: {fileID: 0}
+    - target: {fileID: 8161551672349839535, guid: 74583f0a9d49ca94cbc9e8150630923e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8161551672349839535, guid: 74583f0a9d49ca94cbc9e8150630923e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -90.7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 74583f0a9d49ca94cbc9e8150630923e, type: 3}
