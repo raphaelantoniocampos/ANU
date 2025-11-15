@@ -88,8 +88,8 @@ GameObject:
   - component: {fileID: 6034962750238635833}
   - component: {fileID: 6034962750238635834}
   m_Layer: 5
-  m_Name: deaths (1)
-  m_TagString: Untagged
+  m_Name: deathsTXT
+  m_TagString: deathsTxt
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -223,8 +223,8 @@ GameObject:
   - component: {fileID: 6034962750866164060}
   - component: {fileID: 6034962750866164061}
   m_Layer: 5
-  m_Name: deaths
-  m_TagString: Untagged
+  m_Name: scoreDeaths
+  m_TagString: deaths
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -358,8 +358,8 @@ GameObject:
   - component: {fileID: 6034962751309945645}
   - component: {fileID: 6034962751309945646}
   m_Layer: 5
-  m_Name: nivel
-  m_TagString: Untagged
+  m_Name: scoreLvl
+  m_TagString: nivel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -412,7 +412,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: lvl
+  m_text: Nivel X
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6b63ad9c94da98a4d96ce0c5b30d6ddc, type: 2}
   m_sharedMaterial: {fileID: 197517453172364585, guid: 6b63ad9c94da98a4d96ce0c5b30d6ddc, type: 2}
@@ -541,8 +541,8 @@ GameObject:
   - component: {fileID: 6034962751620023552}
   - component: {fileID: 6034962751620023553}
   m_Layer: 5
-  m_Name: time (1)
-  m_TagString: Untagged
+  m_Name: timeTXT
+  m_TagString: timeTxt
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -676,8 +676,8 @@ GameObject:
   - component: {fileID: 6034962751931094974}
   - component: {fileID: 6034962751931094975}
   m_Layer: 5
-  m_Name: time
-  m_TagString: Untagged
+  m_Name: scoreTime
+  m_TagString: time
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1065,7 +1065,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: ChangeS
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &6822142543831402239

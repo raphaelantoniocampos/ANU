@@ -8,30 +8,34 @@ public class ChangeScene : MonoBehaviour
 {
     public static ChangeScene instance;
 
-    public string nomeDaCena;
+    public int lvl;
+    public bool scoreView = false;
+    public GameObject score;
+
     private GameMaster gameMaster;
     private Vector2 startPosition;
     private GameObject audioManager;
-
-
-    public bool scoreView = false;
-    public GameObject score;
-    public TextMeshProUGUI scoreLvl;
-    public TextMeshProUGUI scoreDeaths;
-    public TextMeshProUGUI scoreTime;
-    public TextMeshProUGUI totalScoreDeaths;
-    public TextMeshProUGUI totalScoreTime;
+    private TextMeshProUGUI scoreLvl;
+    private TextMeshProUGUI scoreDeaths;
+    private TextMeshProUGUI scoreTime;
+    private TextMeshProUGUI deathsTXT;
+    private TextMeshProUGUI timeTXT;
 
     void Start()
     {
         audioManager = GameObject.FindGameObjectWithTag("AudioManager");
+
         instance = this;
     }
 
     public void ChangeS()
     {
         Destroy(audioManager);
-        SceneManager.LoadScene(nomeDaCena);
+
+        var sceneName = SceneManager.GetActiveScene().name;
+        lvl = int.Parse(sceneName.Substring(sceneName.Length - 1, 1));
+
+        SceneManager.LoadScene(lvl + 1);
         startPosition = GameObject.FindGameObjectWithTag("Respawn").GetComponent<Transform>().position;
         gameMaster = GameObject.FindGameObjectWithTag("GameMaster").GetComponent<GameMaster>();
         gameMaster.lastCheckPointPos = startPosition;
@@ -41,7 +45,7 @@ public class ChangeScene : MonoBehaviour
         DeathsAndTime.totalTime += DeathsAndTime.timeCount;
         DeathsAndTime.timeCount = 0;
         DeathsAndTime.deathCount = 0;
-        PauseGame.instance.gamePaused = false;
+        GameObject.FindGameObjectWithTag("PauseGame").GetComponent<PauseGame>().gamePaused = false;
     }
 
     public void Sair()
@@ -51,11 +55,38 @@ public class ChangeScene : MonoBehaviour
 
     public void ScoreView()
     {
-        PauseGame.instance.gamePaused = true;
-        scoreLvl.text = SceneManager.GetActiveScene().name;
+
+        var sceneName = SceneManager.GetActiveScene().name;
+        lvl = int.Parse(sceneName.Substring(sceneName.Length - 1, 1));
+
+        var foundTextMeshObjects = FindObjectsByType<TextMeshProUGUI>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+
+        foreach (var textMesh in foundTextMeshObjects)
+        {
+            switch (textMesh.name)
+            {
+                case "scoreLvl":
+                    scoreLvl = textMesh;
+                    break;
+                case "scoreDeaths":
+                    scoreDeaths = textMesh;
+                    break;
+                case "scoreTime":
+                    scoreTime = textMesh;
+                    break;
+                case "deathsTXT":
+                    deathsTXT = textMesh;
+                    break;
+                case "timeTXT":
+                    timeTXT = textMesh;
+                    break;
+            }
+        }
+
+        GameObject.FindGameObjectWithTag("PauseGame").GetComponent<PauseGame>().gamePaused = true;
+        scoreLvl.text = $"Nivel {lvl}";
         scoreDeaths.text = DeathsAndTime.deathCount.ToString();
         scoreTime.text = DeathsAndTime.niceTime;
-        
         Time.timeScale = 0;
         scoreView = true;
         score.SetActive(true);
@@ -64,13 +95,40 @@ public class ChangeScene : MonoBehaviour
 
     public void FinalScoreView()
     {
-        PauseGame.instance.gamePaused = true;
-        scoreLvl.text = SceneManager.GetActiveScene().name;
+
+        var sceneName = SceneManager.GetActiveScene().name;
+        lvl = int.Parse(sceneName.Substring(sceneName.Length - 1, 1));
+
+        var foundTextMeshObjects = FindObjectsByType<TextMeshProUGUI>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+
+        foreach (var textMesh in foundTextMeshObjects)
+        {
+            switch (textMesh.name)
+            {
+                case "scoreLvl":
+                    scoreLvl = textMesh;
+                    break;
+                case "scoreDeaths":
+                    scoreDeaths = textMesh;
+                    break;
+                case "scoreTime":
+                    scoreTime = textMesh;
+                    break;
+                case "deathsTXT":
+                    deathsTXT = textMesh;
+                    break;
+                case "timeTXT":
+                    timeTXT = textMesh;
+                    break;
+            }
+        }
+
+        GameObject.FindGameObjectWithTag("PauseGame").GetComponent<PauseGame>().gamePaused = true;
+        scoreLvl.text = $"Nivel {lvl}";
         scoreDeaths.text = DeathsAndTime.deathCount.ToString();
         scoreTime.text = DeathsAndTime.niceTime;
-        totalScoreDeaths.text = DeathsAndTime.totalDeath.ToString();
-        totalScoreTime.text = DeathsAndTime.niceTotalTime;
-        
+        deathsTXT.text = DeathsAndTime.totalDeath.ToString();
+        timeTXT.text = DeathsAndTime.niceTotalTime;
         Time.timeScale = 0;
         scoreView = true;
         score.SetActive(true);
@@ -78,10 +136,10 @@ public class ChangeScene : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
         {
-            if(collision.gameObject.tag == "Player")
-            {
-                ScoreView();
-            }
+            ScoreView();
         }
+    }
 }

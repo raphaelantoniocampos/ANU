@@ -15,6 +15,7 @@ TagManager:
   - SpikedBall
   - AudioManager
   - Cloud
+  - PauseGame
   layers:
   - Default
   - TransparentFX

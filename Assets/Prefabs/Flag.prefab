@@ -146,11 +146,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d66c1a9551350f4fac3d3a6e5629770, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nomeDaCena: lvl_1
+  lvl: 0
   scoreView: 0
-  score: {fileID: 6034962751489102388, guid: 28155bcb8d130a049bb38d27c824d572, type: 3}
-  scoreLvl: {fileID: 0}
-  scoreDeaths: {fileID: 0}
-  scoreTime: {fileID: 0}
-  totalScoreDeaths: {fileID: 0}
-  totalScoreTime: {fileID: 0}
+  score: {fileID: 0}

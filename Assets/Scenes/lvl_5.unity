@@ -2944,7 +2944,7 @@ GameObject:
   - component: {fileID: 778297213}
   m_Layer: 0
   m_Name: PauseGame
-  m_TagString: Untagged
+  m_TagString: PauseGame
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3354,10 +3354,6 @@ PrefabInstance:
     - target: {fileID: 710996897050130902, guid: af3ce06ef04a6174cad25977ecafbb17, type: 3}
       propertyPath: m_Name
       value: PauseMenu
-      objectReference: {fileID: 0}
-    - target: {fileID: 710996897050130902, guid: af3ce06ef04a6174cad25977ecafbb17, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 710996897050130903, guid: af3ce06ef04a6174cad25977ecafbb17, type: 3}
       propertyPath: m_Pivot.x
@@ -4063,14 +4059,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d66c1a9551350f4fac3d3a6e5629770, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nomeDaCena: 
+  lvl: 0
   scoreView: 0
   score: {fileID: 1325987653}
-  scoreLvl: {fileID: 107250516}
-  scoreDeaths: {fileID: 62198355}
-  scoreTime: {fileID: 214393527}
-  totalScoreDeaths: {fileID: 602820743}
-  totalScoreTime: {fileID: 280670098}
+  pauseGame: {fileID: 0}
 --- !u!1 &1117198518
 GameObject:
   m_ObjectHideFlags: 0
@@ -4826,14 +4818,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d66c1a9551350f4fac3d3a6e5629770, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nomeDaCena: 
+  lvl: 0
   scoreView: 0
   score: {fileID: 0}
-  scoreLvl: {fileID: 0}
-  scoreDeaths: {fileID: 0}
-  scoreTime: {fileID: 0}
-  totalScoreDeaths: {fileID: 0}
-  totalScoreTime: {fileID: 0}
+  pauseGame: {fileID: 0}
 --- !u!114 &1389331628
 MonoBehaviour:
   m_ObjectHideFlags: 0
