@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-// TODO: Alterar ventiladores teto
 // TODO: Arrumar inimigos virando de um lado pro outro rapido
 // TODO: Inimigos morrem com espinho e tomam stun com pancada na cabeça
 // TODO: Refatorar código inimigos
