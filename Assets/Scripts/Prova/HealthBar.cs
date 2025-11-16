@@ -9,7 +9,7 @@ public class HealthBar : MonoBehaviour
 
     public Image fillBar;
     public float totalHealth;
-    private float health;
+    public float health;
     private float damage;
 
     public bool phaseTwo;
