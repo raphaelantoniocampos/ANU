@@ -8,6 +8,7 @@ public class ChangeScene : MonoBehaviour
 {
     public static ChangeScene instance;
 
+    public string sceneName;
     public int lvl;
     public bool scoreView = false;
     public GameObject score;
@@ -25,14 +26,29 @@ public class ChangeScene : MonoBehaviour
     {
         audioManager = GameObject.FindGameObjectWithTag("AudioManager");
 
+        sceneName = SceneManager.GetActiveScene().name;
+        lvl = int.Parse(sceneName.Substring(sceneName.Length - 1, 1));
+
         instance = this;
+    }
+
+    void Update()
+    {
+        if (scoreView || lvl == 0)
+        {
+            if (Input.GetButtonDown("Submit"))
+            {
+
+                ChangeS();
+            }
+        }
     }
 
     public void ChangeS()
     {
         Destroy(audioManager);
 
-        var sceneName = SceneManager.GetActiveScene().name;
+        sceneName = SceneManager.GetActiveScene().name;
         lvl = int.Parse(sceneName.Substring(sceneName.Length - 1, 1));
 
         SceneManager.LoadScene(lvl + 1);
@@ -56,7 +72,7 @@ public class ChangeScene : MonoBehaviour
     public void ScoreView()
     {
 
-        var sceneName = SceneManager.GetActiveScene().name;
+        sceneName = SceneManager.GetActiveScene().name;
         lvl = int.Parse(sceneName.Substring(sceneName.Length - 1, 1));
 
         var foundTextMeshObjects = FindObjectsByType<TextMeshProUGUI>(FindObjectsInactive.Include, FindObjectsSortMode.None);
@@ -96,7 +112,7 @@ public class ChangeScene : MonoBehaviour
     public void FinalScoreView()
     {
 
-        var sceneName = SceneManager.GetActiveScene().name;
+        sceneName = SceneManager.GetActiveScene().name;
         lvl = int.Parse(sceneName.Substring(sceneName.Length - 1, 1));
 
         var foundTextMeshObjects = FindObjectsByType<TextMeshProUGUI>(FindObjectsInactive.Include, FindObjectsSortMode.None);
