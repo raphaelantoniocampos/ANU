@@ -11,7 +11,7 @@ public class EnemyHealth : MonoBehaviour
     public void TakeDamage()
     {
         health--;
-        if(health <= 0)
+        if (health <= 0)
         {
             Die();
         }
@@ -21,5 +21,14 @@ public class EnemyHealth : MonoBehaviour
     {
         Instantiate(deathEffect, transform.position, Quaternion.identity);
         Destroy(gameObject);
+    }
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Espinho")
+        {
+            TakeDamage();
+        }
+
     }
 }

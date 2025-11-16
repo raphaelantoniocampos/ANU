@@ -27,6 +27,8 @@ public class IAShooter : MonoBehaviour
     public Transform player;
     public float aggroRange;
     public bool mustChase;
+    public float shootingTime;
+    public float bubbleTimeLimit;
     private bool facingRight;
 
     public float shootRange;
@@ -104,16 +106,22 @@ public class IAShooter : MonoBehaviour
 
     void Shoot()
     {
+        shootingTime += Time.deltaTime;
         ActivateChat();
         weapon.enabled = true;
-        if(transform.position.x < player.position.x && !facingRight)
+        if((int)transform.position.x < (int)player.position.x && !facingRight)
         {
             Flip();
         }
         //inimigo do lado direito do player, move pra esquerda
-        else if(transform.position.x > player.position.x && facingRight)
+        else if((int)transform.position.x > (int)player.position.x && facingRight)
         {   
             Flip();
+        }
+
+        if(shootingTime >= bubbleTimeLimit)
+        {
+            DeactivateChat();
         }
     }
 
@@ -122,12 +130,12 @@ public class IAShooter : MonoBehaviour
     {
 
         //inimigo do lado esquerdo no player, move pra direita
-        if(transform.position.x < player.position.x && !facingRight)
+        if((int)transform.position.x < (int)player.position.x && !facingRight)
         {
             Flip();
         }
         //inimigo do lado direito do player, move pra esquerda
-        else if(transform.position.x > player.position.x && facingRight)
+        else if((int)transform.position.x > (int)player.position.x && facingRight)
         {   
             Flip();
         }

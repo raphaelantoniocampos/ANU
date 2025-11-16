@@ -94,12 +94,12 @@ public class IAAggro : MonoBehaviour
         ActivateChat();
 
         //inimigo do lado esquerdo no player, move pra direita
-        if(transform.position.x < player.position.x && !facingRight)
+        if((int)transform.position.x < (int)player.position.x && !facingRight)
         {
             Flip();
         }
         //inimigo do lado direito do player, move pra esquerda
-        else if(transform.position.x > player.position.x && facingRight)
+        else if((int)transform.position.x > (int)player.position.x && facingRight)
         {   
             Flip();
         }

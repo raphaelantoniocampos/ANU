@@ -8,15 +8,19 @@ public class Weapon : MonoBehaviour
     public GameObject bullet;
     public float fireRate;
     private float time;
+    private PauseGame pauseGame;
 
     // Update is called once per frame
     void Update()
     {
         time += Time.deltaTime;
-        if(Input.GetButtonDown("Fire1") && time >= fireRate)
+        if (Input.GetButtonDown("Fire1") && time >= fireRate)
         {
-            Shoot();
-            time = 0;
+            if (!GameObject.FindGameObjectWithTag("PauseGame").GetComponent<PauseGame>().gamePaused)
+            {
+                Shoot();
+                time = 0;
+            }
         }
     }
 

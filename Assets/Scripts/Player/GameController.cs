@@ -4,9 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-// TODO: Arrumar inimigos virando de um lado pro outro rapido
-// TODO: Inimigos morrem com espinho e tomam stun com pancada na cabeça
-// TODO: Refatorar código inimigos
+// BUG: Boss não abre score
+//
+// TODO: lvl 3 areas vazias
+// TODO: Dificultar boss?
+//
 // TODO: Volume slider
 // TODO: Scores na ultima fase
 // TODO: Dicas de comandos início do jogo

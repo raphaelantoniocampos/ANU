@@ -21,42 +21,48 @@ public class FireStone : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-          time += Time.deltaTime;
-        if(time >= activateTime && !fire)
+        if (activateTime == 0)
         {
-            fire = true;
             OnFire();
-            time = 0;
-
         }
-         if(time >= activateTime && fire)
+        else
         {
-            fire = false;
-            OffFire();
-            time = 0;
+            time += Time.deltaTime;
+            if (time >= activateTime && !fire)
+            {
+                OnFire();
+                time = 0;
+
+            }
+            if (time >= activateTime && fire)
+            {
+                OffFire();
+                time = 0;
+            }
         }
-       
     }
     public void OnFire()
     {
         //stoneFire.enabled = true;
-        anim.SetBool("Fire", true );
+        fire = true;
+        anim.SetBool("Fire", true);
     }
     public void OffFire()
     {
-        //toneFire.enabled = false;
-        anim.SetBool("Fire", false );
+        //stoneFire.enabled = false;
+        fire = false;
+        anim.SetBool("Fire", false);
     }
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnTriggerStay2D(Collider2D other)
     {
-        if(collision.gameObject.tag == "Player" && !fire)
+        if (other.gameObject.tag == "Player" && fire)
         {
-            
+            GameController.instance.LoseLife();
         }
     }
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.gameObject.tag == "Player" && fire)
+        if (other.gameObject.tag == "Player" && fire)
         {
             GameController.instance.LoseLife();
 
@@ -64,5 +70,4 @@ public class FireStone : MonoBehaviour
 
     }
 }
-   
 
