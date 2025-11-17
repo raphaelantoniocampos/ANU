@@ -8,7 +8,6 @@ using UnityEngine.SceneManagement;
 //
 // TODO: lvl 3 areas vazias
 // TODO: Dificultar boss?
-// TODO: Alterar skins
 //
 //MAYBE: 
 // TODO: Volume slider

@@ -26,8 +26,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 309466299}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.4, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
+  m_LocalPosition: {x: 0, y: 5, z: 0}
+  m_LocalScale: {x: 2.6297398, y: 2.5656, z: 1.2828}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1793800077}
@@ -102,7 +102,7 @@ MonoBehaviour:
   text: {fileID: 1076206972}
   anim: {fileID: 0}
   sentences:
-  - BORA TOMAR UMA
+  - BORA
   - PARTIU TRAILER
   - TOMAR UMA GELADA
 --- !u!1 &882527606
@@ -129,7 +129,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 882527606}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.206, y: -0.157, z: 0}
+  m_LocalPosition: {x: 1.94, y: -2.39, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -202,10 +202,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: BORA TOMAR UMA
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6b63ad9c94da98a4d96ce0c5b30d6ddc, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 197517453172364585, guid: 6b63ad9c94da98a4d96ce0c5b30d6ddc, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -268,7 +268,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &1793800076
@@ -308,7 +308,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -0.002, y: 0.025}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 50.22, y: 12.586}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &1793800080
@@ -397,7 +397,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1843149305}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.157, z: 0}
+  m_LocalPosition: {x: 0, y: -2.39, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -421,7 +421,7 @@ GameObject:
   - component: {fileID: 504173489}
   - component: {fileID: 550604277}
   m_Layer: 9
-  m_Name: Aggro Enemy
+  m_Name: Aggro Enemy 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -435,8 +435,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1291542023257251811}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.675, y: 6.317, z: 14.088395}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalPosition: {x: -1.677, y: 5.32, z: 14.088395}
+  m_LocalScale: {x: 0.19, y: 0.19, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 882527607}
@@ -486,7 +486,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: -7152759390613953277, guid: 3750f45c844123341b9a777a96cb1eca, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e229acb41c330bf4ebe258c8e155b1a4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -510,9 +510,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.05118438}
+  m_Offset: {x: 0, y: -0.4}
   serializedVersion: 2
-  m_Radius: 0.1088156
+  m_Radius: 1.95
 --- !u!50 &1291542023257251807
 Rigidbody2D:
   serializedVersion: 4
@@ -614,6 +614,6 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.001580724, y: -0.04}
-  m_Size: {x: 0.3231618, y: 0.1255584}
+  m_Offset: {x: 0.001580724, y: -0.29}
+  m_Size: {x: 5.88, y: 2.77}
   m_Direction: 1
