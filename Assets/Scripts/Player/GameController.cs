@@ -8,11 +8,12 @@ using UnityEngine.SceneManagement;
 //
 // TODO: lvl 3 areas vazias
 // TODO: Dificultar boss?
+// TODO: Alterar skins
 //
+//MAYBE: 
 // TODO: Volume slider
 // TODO: Scores na ultima fase
 // TODO: Dicas de comandos início do jogo
-// TODO: Alterar skins
 // TODO: Adicionar créditos
 // TODO: Cutscenes
 // TODO: Save

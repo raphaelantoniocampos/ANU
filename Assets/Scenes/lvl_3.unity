@@ -6711,6 +6711,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1913728160}
     m_Modifications:
+    - target: {fileID: 1291542023257251804, guid: fe887d77942a6024f8ff27441c5b0420, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -7152759390613953277, guid: 3750f45c844123341b9a777a96cb1eca, type: 3}
+    - target: {fileID: 1291542023257251804, guid: fe887d77942a6024f8ff27441c5b0420, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1291542023257251805, guid: fe887d77942a6024f8ff27441c5b0420, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -9091,6 +9099,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1913728160}
     m_Modifications:
+    - target: {fileID: 1076206972, guid: fe887d77942a6024f8ff27441c5b0420, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1291542023257251805, guid: fe887d77942a6024f8ff27441c5b0420, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -42101,6 +42113,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1913728160}
     m_Modifications:
+    - target: {fileID: 1076206972, guid: fe887d77942a6024f8ff27441c5b0420, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 197517453172364585, guid: 6b63ad9c94da98a4d96ce0c5b30d6ddc, type: 2}
+    - target: {fileID: 1076206972, guid: fe887d77942a6024f8ff27441c5b0420, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1291542023257251805, guid: fe887d77942a6024f8ff27441c5b0420, type: 3}
       propertyPath: m_RootOrder
       value: 3
