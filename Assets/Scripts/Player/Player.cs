@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public bool debug;
     public float speed;
     public float jumpForce;
     public int extraJumpsValue;
@@ -89,7 +90,7 @@ public class Player : MonoBehaviour
             FindObjectOfType<AudioManager>().Play("jump");
         } 
 
-        //die
+        // die
         if(playerDie && time >= 0.292f)
         {
             GameController.instance.Restart();
@@ -177,6 +178,7 @@ public class Player : MonoBehaviour
         time = 0;
         playerDie = true;
         anim.SetTrigger("die");
+        GameController.instance.invulnerable = true;
     }
   
     

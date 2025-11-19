@@ -8,6 +8,20 @@ public class EnemyHealth : MonoBehaviour
     public int health;
     public GameObject deathEffect;
 
+    public void Start()
+    {
+        var mod = Random.Range(0,99);
+        if (mod > 50){
+            health++;
+        }
+        if (mod > 90){
+            health++;
+        }
+        if (mod >= 99){
+            health++;
+        }
+    }
+
     public void TakeDamage()
     {
         health--;

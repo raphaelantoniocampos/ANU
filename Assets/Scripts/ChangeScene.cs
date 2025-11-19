@@ -19,8 +19,8 @@ public class ChangeScene : MonoBehaviour
     private TextMeshProUGUI scoreLvl;
     private TextMeshProUGUI scoreDeaths;
     private TextMeshProUGUI scoreTime;
-    private TextMeshProUGUI deathsTXT;
-    private TextMeshProUGUI timeTXT;
+    private TextMeshProUGUI deathsTotal;
+    private TextMeshProUGUI timeTotal;
 
     void Start()
     {
@@ -50,7 +50,10 @@ public class ChangeScene : MonoBehaviour
 
         sceneName = SceneManager.GetActiveScene().name;
         lvl = int.Parse(sceneName.Substring(sceneName.Length - 1, 1));
-
+        if (lvl >= 5)
+        {
+            lvl = -1;
+        }
         SceneManager.LoadScene(lvl + 1);
         startPosition = GameObject.FindGameObjectWithTag("Respawn").GetComponent<Transform>().position;
         gameMaster = GameObject.FindGameObjectWithTag("GameMaster").GetComponent<GameMaster>();
@@ -90,12 +93,6 @@ public class ChangeScene : MonoBehaviour
                 case "scoreTime":
                     scoreTime = textMesh;
                     break;
-                case "deathsTXT":
-                    deathsTXT = textMesh;
-                    break;
-                case "timeTXT":
-                    timeTXT = textMesh;
-                    break;
             }
         }
 
@@ -113,6 +110,11 @@ public class ChangeScene : MonoBehaviour
     {
 
         sceneName = SceneManager.GetActiveScene().name;
+
+        var audio = audioManager.GetComponent<AudioManager>();
+        audio.Stop(sceneName);
+        audio.Play("final");
+
         lvl = int.Parse(sceneName.Substring(sceneName.Length - 1, 1));
 
         var foundTextMeshObjects = FindObjectsByType<TextMeshProUGUI>(FindObjectsInactive.Include, FindObjectsSortMode.None);
@@ -130,21 +132,25 @@ public class ChangeScene : MonoBehaviour
                 case "scoreTime":
                     scoreTime = textMesh;
                     break;
-                case "deathsTXT":
-                    deathsTXT = textMesh;
+                case "deathsTotal":
+                    deathsTotal = textMesh;
                     break;
-                case "timeTXT":
-                    timeTXT = textMesh;
+                case "timeTotal":
+                    timeTotal = textMesh;
                     break;
             }
         }
 
         GameObject.FindGameObjectWithTag("PauseGame").GetComponent<PauseGame>().gamePaused = true;
+
+        DeathsAndTime.totalDeath += DeathsAndTime.deathCount;
+        DeathsAndTime.totalTime += DeathsAndTime.timeCount;
+
         scoreLvl.text = $"Nivel {lvl}";
         scoreDeaths.text = DeathsAndTime.deathCount.ToString();
         scoreTime.text = DeathsAndTime.niceTime;
-        deathsTXT.text = DeathsAndTime.totalDeath.ToString();
-        timeTXT.text = DeathsAndTime.niceTotalTime;
+        deathsTotal.text = DeathsAndTime.totalDeath.ToString();
+        timeTotal.text = DeathsAndTime.niceTotalTime;
         Time.timeScale = 0;
         scoreView = true;
         score.SetActive(true);

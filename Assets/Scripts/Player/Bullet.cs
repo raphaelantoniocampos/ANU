@@ -10,43 +10,50 @@ public class Bullet : MonoBehaviour
     public GameObject impactEffect;
     private bool damaged;
     public float force;
+    public float rotationSpeed;
 
     // Start is called before the first frame update
     void Start()
     {
         //rb.velocity = transform.right * speed;
-        if(Player.instance.facingRight)
+        if (Player.instance.facingRight)
         {
             rb.velocity = new Vector2(speed, force);
-        }else
+        }
+        else
         {
             rb.velocity = new Vector2(-speed, force);
         }
-        
+
     }
 
-    void OnTriggerEnter2D(Collider2D other) 
+    void FixedUpdate()
+    {
+        transform.Rotate(Vector3.forward * rotationSpeed * Time.fixedDeltaTime);
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
     {
         EnemyHealth enemy = other.GetComponent<EnemyHealth>();
-        if(enemy != null && !damaged)
+        if (enemy != null && !damaged)
         {
             damaged = true;
             enemy.TakeDamage();
         }
         HealthBar prova = other.GetComponent<HealthBar>();
-        if(prova != null && !damaged)
+        if (prova != null && !damaged)
         {
             damaged = true;
             prova.LoseHealth();
         }
         Question question = other.GetComponent<Question>();
-        if(question != null && !damaged)
+        if (question != null && !damaged)
         {
             damaged = true;
             question.TakeDamage();
         }
         Error error = other.GetComponent<Error>();
-        if(error != null && !damaged)
+        if (error != null && !damaged)
         {
             damaged = true;
             error.TakeDamage();

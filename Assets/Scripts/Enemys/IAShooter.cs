@@ -18,6 +18,7 @@ public class IAShooter : MonoBehaviour
     public bool isGrounded;
     private bool mustTurn;
     private bool isChilling;
+    private bool speedUp;
 
     public float time = 0;
     public float movingTime;
@@ -40,9 +41,16 @@ public class IAShooter : MonoBehaviour
     private bool chatActive;
     public GameObject chatBubble;
 
+    public bool angry;
+    private int startedHealth;
+    private float startedAggro;
+
     void Start()
     {
         instance = this;
+        angry = false;
+        startedHealth = GetComponent<EnemyHealth>().health;
+        startedAggro = aggroRange;
         rb = GetComponent<Rigidbody2D>();
         weapon = GetComponent<EnemyWeapon>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -62,6 +70,15 @@ public class IAShooter : MonoBehaviour
     void Update()
     {
         time += Time.deltaTime;
+
+        if (GetComponent<EnemyHealth>().health < startedHealth)
+        {
+            if (!angry)
+            {
+                angry = true;
+                aggroRange *= 1.5f;
+            }
+        }
 
         //distancia do jogador
         float distance = Vector2.Distance(transform.position, player.position);
@@ -129,6 +146,12 @@ public class IAShooter : MonoBehaviour
     void Chase()
     {
 
+        if (!speedUp)
+        {
+            speed *= 1.5f;
+            speedUp = true;
+        }
+
         //inimigo do lado esquerdo no player, move pra direita
         if((int)transform.position.x < (int)player.position.x && !facingRight)
         {
@@ -145,6 +168,19 @@ public class IAShooter : MonoBehaviour
 
     void Chill()
     {
+        if (angry)
+        {
+            angry = false;
+            aggroRange = startedAggro;
+            GetComponent<EnemyHealth>().health = startedHealth;
+        }
+
+        if (speedUp)
+        {
+            speed *= 0.66666667f;
+            speedUp = false;
+        }
+
         DeactivateChat();
         if(isGrounded && mustTurn)
         {

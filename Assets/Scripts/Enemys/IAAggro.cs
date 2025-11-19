@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class IAAggro : MonoBehaviour
 {
-    
     public static IAAggro instance;
     private Rigidbody2D rb;
     public Collider2D bc;
@@ -36,9 +35,16 @@ public class IAAggro : MonoBehaviour
     private bool chatActive;
     public GameObject chatBubble;
 
+    public bool angry;
+    private int startedHealth;
+    private float startedAggro;
+
     void Start()
     {
         instance = this;
+        angry = false;
+        startedHealth = GetComponent<EnemyHealth>().health;
+        startedAggro = aggroRange;
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         chatSpriteRenderer = chatBubble.GetComponent<SpriteRenderer>();
@@ -49,34 +55,45 @@ public class IAAggro : MonoBehaviour
 
     void FixedUpdate()
     {
-        isGrounded = Physics2D.OverlapCircle(footGroundCheck.position,checkRadius,whatIsGround);
-        mustTurn = !Physics2D.OverlapCircle(groundCheck.position,checkRadius,whatIsGround);  
+        isGrounded = Physics2D.OverlapCircle(footGroundCheck.position, checkRadius, whatIsGround);
+        mustTurn = !Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
     }
 
     void Update()
     {
         time += Time.deltaTime;
 
+        if (GetComponent<EnemyHealth>().health < startedHealth)
+        {
+            if (!angry)
+            {
+                angry = true;
+                aggroRange *= 1.5f;
+            }
+        }
+
         //distancia do jogador
         float distance = Vector2.Distance(transform.position, player.position);
-        
+
         //se a distancia for menor que o range do agro ativa o método de perseguir
-        if(distance < aggroRange)
+        if (distance < aggroRange)
         {
             isChilling = false;
             mustChase = true;
-        }else if (distance > aggroRange * 2)
+        }
+        else if (distance > aggroRange * 2)
         {
             isChilling = true;
             mustChase = false;
         }
 
-        if(isChilling)
+
+        if (isChilling)
         {
             Chill();
         }
 
-        if(mustChase)
+        if (mustChase)
         {
             Chase();
         }
@@ -86,7 +103,7 @@ public class IAAggro : MonoBehaviour
     {
         if (!speedUp)
         {
-            speed *= 1.3333333f;
+            speed *= 1.5f;
             speedUp = true;
         }
 
@@ -94,19 +111,19 @@ public class IAAggro : MonoBehaviour
         ActivateChat();
 
         //inimigo do lado esquerdo no player, move pra direita
-        if((int)transform.position.x < (int)player.position.x && !facingRight)
+        if ((int)transform.position.x < (int)player.position.x && !facingRight)
         {
             Flip();
         }
         //inimigo do lado direito do player, move pra esquerda
-        else if((int)transform.position.x > (int)player.position.x && facingRight)
-        {   
+        else if ((int)transform.position.x > (int)player.position.x && facingRight)
+        {
             Flip();
         }
 
         rb.velocity = new Vector2(speed, rb.velocity.y);
 
-        if(chasingTime >= bubbleTimeLimit)
+        if (chasingTime >= bubbleTimeLimit)
         {
             DeactivateChat();
         }
@@ -114,38 +131,46 @@ public class IAAggro : MonoBehaviour
 
     void Chill()
     {
+        if (angry)
+        {
+            angry = false;
+            aggroRange = startedAggro;
+            GetComponent<EnemyHealth>().health = startedHealth;
+        }
+
         chasingTime = 0;
         if (speedUp)
         {
-            speed *= 0.75f;
+            speed *= 0.66666667f;
             speedUp = false;
         }
         DeactivateChat();
-        if(isGrounded && mustTurn)
+        if (isGrounded && mustTurn)
         {
             Flip();
-            
-        }else if(bc.IsTouchingLayers(whatIsGround) || bc.IsTouchingLayers(whatIsEnemy))
+
+        }
+        else if (bc.IsTouchingLayers(whatIsGround) || bc.IsTouchingLayers(whatIsEnemy))
         {
             Flip();
         }
 
 
-        if(time >= movingTime)
+        if (time >= movingTime)
         {
-            direction = Random.Range(0,3);
+            direction = Random.Range(0, 3);
             time = 0;
             fliped = false;
         }
-        if(direction == 0)
+        if (direction == 0)
         {
             return;
         }
-        if(direction == 1)
+        if (direction == 1)
         {
             rb.velocity = new Vector2(speed, rb.velocity.y);
         }
-        if(direction == 2 && !fliped)
+        if (direction == 2 && !fliped)
         {
             Flip();
             fliped = true;
@@ -157,19 +182,18 @@ public class IAAggro : MonoBehaviour
     {
         facingRight = !facingRight;
         bool wasChilling = false;
-        if(isChilling)
+        if (isChilling)
         {
             isChilling = false;
             wasChilling = true;
         }
-         
         transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
         speed *= -1;
-        
 
-        if(chatActive)
+
+        if (chatActive)
         {
-            if(facingRight)
+            if (facingRight)
             {
                 chatBubble.transform.localScale = new Vector2(0.25f, chatBubble.transform.localScale.y);
             }
@@ -178,8 +202,8 @@ public class IAAggro : MonoBehaviour
                 chatBubble.transform.localScale = new Vector2(-0.25f, chatBubble.transform.localScale.y);
             }
         }
-        
-        if(wasChilling)
+
+        if (wasChilling)
         {
             isChilling = true;
         }
@@ -189,14 +213,14 @@ public class IAAggro : MonoBehaviour
     void ActivateChat()
     {
         chatBubble.SetActive(true);
-        if(facingRight)
-            {
-                chatBubble.transform.localScale = new Vector2(0.25f, chatBubble.transform.localScale.y);
-            }
-            else
-            {
-                chatBubble.transform.localScale = new Vector2(-0.25f, chatBubble.transform.localScale.y);
-            }
+        if (facingRight)
+        {
+            chatBubble.transform.localScale = new Vector2(0.25f, chatBubble.transform.localScale.y);
+        }
+        else
+        {
+            chatBubble.transform.localScale = new Vector2(-0.25f, chatBubble.transform.localScale.y);
+        }
         chatActive = true;
     }
 

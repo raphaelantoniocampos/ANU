@@ -7,6 +7,7 @@ public class HealthBar : MonoBehaviour
 {
     public static HealthBar instance;
 
+    public Prova prova;
     public Image fillBar;
     public float totalHealth;
     public float health;
@@ -21,12 +22,14 @@ public class HealthBar : MonoBehaviour
     {
         instance = this;
 
+        prova = GetComponent<Prova>();
         anim = GetComponent<Animator>();
         damage = 100 / totalHealth;
         health = totalHealth;
     }
     public void LoseHealth()
     {
+        prova.createErrorTime+= 0.5f;
         anim.SetTrigger("hit");
         health --;
         fillBar.fillAmount -= damage / 100;
@@ -46,7 +49,7 @@ public class HealthBar : MonoBehaviour
             phaseTwo = false;
             phaseThree = false;
             ChangeScene.instance.FinalScoreView();
-            Destroy(gameObject);
+            // Destroy(gameObject);
         }
     }
     

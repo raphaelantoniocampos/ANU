@@ -6,8 +6,7 @@ public class Prova : MonoBehaviour
 {
     private Rigidbody2D rb;
     public float speed;
-    public float flipTime; 
-
+    public float flipTime;
     private float time;
 
     public GameObject question;
@@ -15,8 +14,8 @@ public class Prova : MonoBehaviour
     public Transform createPoint;
     public float createQuestionRate;
     public float createErrorRate;
+    public float createErrorTime;
     private float createQuestionTime;
-    private float createErrorTime;
 
     private Animator anim;
 
@@ -31,16 +30,26 @@ public class Prova : MonoBehaviour
         createQuestionTime += Time.deltaTime;
         Move();
 
-        if(createQuestionTime >= createQuestionRate)
+        if (createQuestionTime >= createQuestionRate)
         {
             Instantiate(question, createPoint.position, Quaternion.identity);
             createQuestionTime = 0;
+            if (HealthBar.instance.phaseTwo)
+            {
+                createQuestionRate = 5;
+            }
+
+            if (HealthBar.instance.phaseThree)
+            {
+                createQuestionRate = 4;
+            }
+
         }
 
-        if(HealthBar.instance.phaseTwo)
+        if (HealthBar.instance.phaseTwo)
         {
             createErrorTime += Time.deltaTime;
-            if(createErrorTime >= createErrorRate)
+            if (createErrorTime >= createErrorRate)
             {
                 Instantiate(error, createPoint.position, Quaternion.identity);
                 createErrorTime = 0;
@@ -52,7 +61,7 @@ public class Prova : MonoBehaviour
 
     void Move()
     {
-        if(time >= flipTime)
+        if (time >= flipTime)
         {
             Flip();
             time = 0;

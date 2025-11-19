@@ -4,16 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-// BUG: Boss não abre score
-//
-// TODO: lvl 3 areas vazias
-// TODO: Dificultar boss?
-//
 //MAYBE: 
+// TODO: lvl 3 areas vazias
 // TODO: Volume slider
-// TODO: Scores na ultima fase
-// TODO: Dicas de comandos início do jogo
-// TODO: Adicionar créditos
+// TODO: Créditos
 // TODO: Cutscenes
 // TODO: Save
 // TODO: Ranking
@@ -26,17 +20,15 @@ public class GameController : MonoBehaviour
     public bool playerDie;
     public bool invulnerable;
     public float time;
-    
 
     void Start()
     {
         instance = this;
     }
-    
     void Update()
     {
         time += Time.deltaTime;
-        if(time >= 1)
+        if (time >= 1)
         {
             invulnerable = false;
         }
@@ -49,15 +41,15 @@ public class GameController : MonoBehaviour
             StartCoroutine(FlashAfterDamage());
             invulnerable = true;
             time = 0;
-            //diminiu o valor das vidas restantes
+            // diminiu o valor das vidas restantes
             livesRemaining--;
             FindObjectOfType<AudioManager>().Play("player_hit");
 
-            //esconde uma imagem de coração
+            // esconde uma imagem de coração
             lives[livesRemaining].enabled = false;
 
-            //se ficar sem vida, da restart na fase
-            if(livesRemaining <= 0)
+            // se ficar sem vida, da restart na fase
+            if (livesRemaining <= 0)
             {
                 Player.instance.Die();
                 FindObjectOfType<AudioManager>().Play("player_die");
